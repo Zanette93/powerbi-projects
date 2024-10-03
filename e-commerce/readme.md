@@ -7,21 +7,21 @@ O arquivo ![Modelo dos dados](dataset.png) mostra a modelagem do dataset.
 
 # **DESENVOLVIMENTO**
 ### ETL
-O processo de tratamento dos dados se iniciou optando pela não utilização do arquivo CSV que traduzia as categorias de produtos para o inglês. Seguindo nesta linha, as colunas e valores de todas as tabelas que continham nomes em inglês foram traduzidos para o português. Para padronizar os dados de maneira rápida e eficiente, foi criada uma função ‘SemAcentos’ para remover os acentos das cidades na tabela de Geolocalização. As colunas ‘Cidade’ e ‘UF’ também foram removidas das tabelas Clientes e Vendedores para evitar redundâncias nos dados. Optou-se por manter apenas o CEP, que seria utilizado para fazer a relação com a tabela de Geolocalização, que já fornecia essas informações, assim como latitude e longitude.
-Ainda visando manter dados úteis e bem estruturados na análise, optou-se por excluir colunas de especificação do produto (Tamanho, peso, etc.) da tabela Produtos, a coluna de sequência de pagamentos da tabela Pagamentos e a coluna de identificação da ordem do pedido da tabela Pedidos.
+O processo de tratamento dos dados se iniciou optando pela não utilização do arquivo CSV que traduzia as categorias de produtos para o inglês. Seguindo nesta linha, as colunas e valores de todas as tabelas que continham nomes em inglês foram traduzidos para o português. Algumas colunas que não seriam usadas foram removidas e optou-se por manter apenas o CEP, que seria utilizado para fazer a relação com a tabela de Geolocalização que seria utilizada para criação do mapa.
+Também foram alterados tipos utilizando localidade, ou simplesmente substituído o ponto pela vírgula nas tabelas que continham colunas de pagamento (moedas).
 
 ### MODELAGEM
 Criação de medidas e colunas calculadas utilizando fórmulas DAX, para auxiliar nas futuras visualizações do dashboard.
 Ocultação de dados sensíveis como as ID’s que não serão utilizadas e não precisam estar disponíveis aos usuários.
-Criação de uma tabela de calendário utilizando a função CALENDARAUTO, que facilita a criação de relatórios e análises baseadas em tempo. Isso permite a identificação de tendências ao longo do tempo, sazonalidade e outras métricas temporais, porque garante que todas as datas possíveis estejam presentes.
+Criação de uma tabela de calendário, que facilita a criação de relatórios e análises baseadas em tempo. Isso permite a identificação de tendências ao longo do tempo, sazonalidade e outras métricas temporais, porque garante que todas as datas possíveis estejam presentes.
+
 
 ### VISUALIZAÇÃO
-Apesar deste ser um dataset aberto ao público, o nome da Olist não foi utilizado no dashboard e optou-se pela criação de uma logo fictícia.
-As artes utilizadas como tela de fundo do dashboard foram feitas no Figma.
-Foram desenvolvidas 3 páginas de relatório:
-Na página Visão Geral, foram disponibilizados os principais indicadores e informações mais relevantes para a empresa: Faturamento, número de vendas e produtos mais vendidos e que mais faturam. A visualização possibilita a interação entre as categorias e os valores aos quais estão associadas.
-O Perfil Regional fornece uma maior compreensão entre as regiões e seus impactos nas vendas e faturamento. Ela serve como um complemento para as informações disponíveis na primeira página do relatório.
-Na Página de Indicadores, o foco já não é mais apenas informar sobre o andamento do negócio, mas sim compreendê-lo, levando a um olhar mais crítico na busca por possíveis melhorias.
+Criação de medidas e colunas calculadas utilizando fórmulas DAX, para auxiliar nas futuras visualizações do dashboard.
+Ocultação de dados sensíveis como as ID’s que não serão utilizadas e não precisam estar disponíveis aos usuários.
+Criação de uma tabela de calendário, que facilita a criação de relatórios e análises baseadas em tempo. Isso permite a identificação de tendências ao longo do tempo, sazonalidade e outras métricas temporais, porque garante que todas as datas possíveis estejam presentes.
+A prototipação foi feita usando FIGMA e os visuais pensados através de um Mapa de Empatia, buscando trazer insights valiosos para a gerência da empresa.
+
 
 # **CONCLUSÕES**
 Claramente um negócio em ascensão, o ecommerce vem em uma crescente no faturamento sendo liderado pelas categorias de Beleza Saúde, Cama Mesa Banho e Esporte Lazer que figuram entre as categorias de maior faturamento como também nas mais vendidas, possibilitando uma maior compreensão do perfil dos clientes. Vale ressaltar que uma análise rápida nas linhas de tendências observando a análise temporal por categoria, mostra que a Relógios Presentes possui o maior crescimento no período disposto. 
